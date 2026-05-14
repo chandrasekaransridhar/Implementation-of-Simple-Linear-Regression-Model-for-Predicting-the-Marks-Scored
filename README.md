@@ -29,6 +29,8 @@ data={"hours":[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       "marks":[35, 40, 50, 55, 60, 65, 70, 75, 80, 85]
      }
 df=pd.DataFrame(data)
+print("The Dataset of the hour and marks\n")
+print(df)
 x=df[["hours"]]
 y=df["marks"]
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
@@ -38,7 +40,11 @@ y_predict=model.predict(x_test)
 mse=mean_squared_error(y_test,y_predict)
 mae=mean_absolute_error(y_test,y_predict)
 r2=r2_score(y_test,y_predict)
+print("\n")
+print("-"*52)
 print(f"The predicted value is {y_predict}")
+print(f"The slope of the line is (m) {model.intercept_}")
+print(f"The coefficient {model.coef_}")
 print(f"The mean squared error value is {mse}")
 print(f"The mean  absolute error value is {mae}")
 print(f"The r2 score value is {r2}")
@@ -52,9 +58,11 @@ plt.show()
 hour=float(input("Enter the hours"))
 new_predicted_data=model.predict([[hour]])
 print(f"marks for studying {hour} hours {new_predicted_data[0]:.2f}")
+print("-"*52)
 ~~~
 ## Output:
-<img width="873" height="584" alt="Screenshot from 2026-05-14 09-17-00" src="https://github.com/user-attachments/assets/d7cf0dc6-9778-437a-a877-61992a7e6089" />
+<img width="903" height="721" alt="Screenshot from 2026-05-14 09-35-38" src="https://github.com/user-attachments/assets/f73ab0e1-fcc3-46f8-bafa-40e8ddef0e91" />
+
 
 
 
